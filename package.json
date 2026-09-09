@@ -1,0 +1,39 @@
+{
+  "name": "product-recs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Amazon product recommendation platform — web + native mobile",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "test": "turbo run test",
+    "typecheck": "turbo run typecheck",
+    "lint": "turbo run lint",
+    "web": "npm run dev --workspace @recs/web",
+    "mobile": "npm run start --workspace @recs/mobile",
+    "sync:shared": "node scripts/sync-shared.mjs",
+    "sync:shared:check": "node scripts/sync-shared.mjs --check",
+    "gen:theme": "node scripts/gen-theme-css.mjs",
+    "gen:theme:check": "node scripts/gen-theme-css.mjs --check",
+    "check:actions": "node scripts/check-server-actions.mjs",
+    "fn:check": "deno check --config supabase/functions/deno.json supabase/functions/recommend/index.ts",
+    "db:push": "supabase db push",
+    "config:push": "supabase config push",
+    "config:diff": "supabase config diff",
+    "fn:serve": "supabase functions serve recommend --no-verify-jwt",
+    "fn:deploy": "npm run sync:shared && supabase functions deploy recommend"
+  },
+  "devDependencies": {
+    "supabase": "2.117.0",
+    "turbo": "^2.5.5",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "npm@11.17.0",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

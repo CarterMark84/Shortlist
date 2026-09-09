@@ -1,0 +1,57 @@
+# Supabase CLI project config.
+#
+# This project targets a HOSTED Supabase project rather than the local Docker
+# stack (Docker is not installed on this machine). Workflow:
+#
+#   supabase login
+#   supabase link --project-ref <your-project-ref>
+#   supabase db push                       # apply migrations/
+#   supabase secrets set ANTHROPIC_API_KEY=... SERPAPI_API_KEY=...
+#   supabase functions deploy recommend
+#
+# `project_id` below is only a local label; `supabase link` decides the target.
+
+project_id = "product-recs"
+
+[functions.recommend]
+# The function resolves the caller from their JWT and refuses anonymous
+# requests, so this must stay true in production. `npm run fn:serve` passes
+# --no-verify-jwt for local testing only.
+verify_jwt = true
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Auth. Apply to the linked project with `npm run config:push`, which saves
+# clicking through the dashboard and keeps these settings in version control.
+# ─────────────────────────────────────────────────────────────────────────────
+[auth]
+enabled = true
+
+# Confirmation and password-reset links are built from site_url. Change this to
+# your real domain before deploying, or those emails will point at localhost.
+site_url = "http://localhost:3000"
+
+# Every URL an auth email is allowed to redirect back to.
+additional_redirect_urls = [
+  "http://localhost:3000/auth/callback",
+  "http://localhost:3111/auth/callback",
+  "shortlist://auth/callback",
+]
+
+# The UI enforces 8; keep the server floor at least as strict.
+minimum_password_length = 8
+
+[auth.email]
+enable_signup = true
+
+# false = accounts are usable immediately, no confirmation email.
+#
+# Set this way deliberately: Supabase's built-in mailer is rate-limited to a
+# handful of messages an hour and documented as test-only, so leaving
+# confirmations on without your own SMTP provider means sign-ups silently fail.
+# Turn this back to true once SMTP is configured under Authentication → Emails.
+enable_confirmations = false
+
+# Still require confirmation when someone *changes* their email address —
+# that protects an existing account, and is not on the sign-up hot path.
+double_confirm_changes = true

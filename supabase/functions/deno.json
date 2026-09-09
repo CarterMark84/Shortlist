@@ -1,0 +1,6 @@
+{
+  "//": "No import map on purpose. The Supabase deploy bundler uploads only the function's .ts files, not this config, so a bare specifier like '@supabase/supabase-js' fails to resolve remotely with 'Relative import path not prefixed with / or ./ or ../'. Imports therefore carry fully-qualified npm: specifiers with pinned versions, which resolve identically locally and on deploy.",
+  "compilerOptions": {
+    "strict": true
+  }
+}

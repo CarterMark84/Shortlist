@@ -1,0 +1,156 @@
+/* ═══════════════════════════════════════════════════════════════════════
+ * GENERATED FILE — DO NOT EDIT.
+ * Produced from packages/shared/src/theme.ts by scripts/gen-theme-css.mjs.
+ * Edit the tokens there, then run `npm run gen:theme`.
+ * ═══════════════════════════════════════════════════════════════════════ */
+
+/* Semantic tokens — light is the base. */
+:root {
+  color-scheme: light;
+  --canvas: #FAFAF9;
+  --surface: #FFFFFF;
+  --surface-muted: #F5F5F4;
+  --line: #E7E5E4;
+  --line-strong: #D6D3D1;
+  --ink: #1C1917;
+  --ink-muted: #57534E;
+  --ink-subtle: #A8A29E;
+  --accent: #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-pressed: #3730A3;
+  --accent-subtle: #EEF2FF;
+  --accent-border: #C7D2FE;
+  --on-accent: #FFFFFF;
+  --star: #F59E0B;
+  --star-empty: #E7E5E4;
+  --success: #059669;
+  --success-subtle: #ECFDF5;
+  --danger: #DC2626;
+  --danger-subtle: #FEF2F2;
+  --scrim: rgba(28, 25, 23, 0.45);
+}
+
+/* Follow the OS preference unless the user has explicitly chosen light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --canvas: #0C0A09;
+    --surface: #1C1917;
+    --surface-muted: #292524;
+    --line: #292524;
+    --line-strong: #44403C;
+    --ink: #FAFAF9;
+    --ink-muted: #A8A29E;
+    --ink-subtle: #78716C;
+    --accent: #818CF8;
+    --accent-hover: #A5B4FC;
+    --accent-pressed: #C7D2FE;
+    --accent-subtle: #1E1B4B;
+    --accent-border: #3730A3;
+    --on-accent: #1C1917;
+    --star: #FBBF24;
+    --star-empty: #44403C;
+    --success: #34D399;
+    --success-subtle: #022C22;
+    --danger: #F87171;
+    --danger-subtle: #450A0A;
+    --scrim: rgba(0, 0, 0, 0.65);
+  }
+}
+
+/* An explicit choice wins in both directions. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --canvas: #0C0A09;
+  --surface: #1C1917;
+  --surface-muted: #292524;
+  --line: #292524;
+  --line-strong: #44403C;
+  --ink: #FAFAF9;
+  --ink-muted: #A8A29E;
+  --ink-subtle: #78716C;
+  --accent: #818CF8;
+  --accent-hover: #A5B4FC;
+  --accent-pressed: #C7D2FE;
+  --accent-subtle: #1E1B4B;
+  --accent-border: #3730A3;
+  --on-accent: #1C1917;
+  --star: #FBBF24;
+  --star-empty: #44403C;
+  --success: #34D399;
+  --success-subtle: #022C22;
+  --danger: #F87171;
+  --danger-subtle: #450A0A;
+  --scrim: rgba(0, 0, 0, 0.65);
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --canvas: #FAFAF9;
+  --surface: #FFFFFF;
+  --surface-muted: #F5F5F4;
+  --line: #E7E5E4;
+  --line-strong: #D6D3D1;
+  --ink: #1C1917;
+  --ink-muted: #57534E;
+  --ink-subtle: #A8A29E;
+  --accent: #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-pressed: #3730A3;
+  --accent-subtle: #EEF2FF;
+  --accent-border: #C7D2FE;
+  --on-accent: #FFFFFF;
+  --star: #F59E0B;
+  --star-empty: #E7E5E4;
+  --success: #059669;
+  --success-subtle: #ECFDF5;
+  --danger: #DC2626;
+  --danger-subtle: #FEF2F2;
+  --scrim: rgba(28, 25, 23, 0.45);
+}
+
+/* Expose the semantic tokens to Tailwind utilities. */
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-pressed: var(--accent-pressed);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-accent-border: var(--accent-border);
+  --color-on-accent: var(--on-accent);
+  --color-star: var(--star);
+  --color-star-empty: var(--star-empty);
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-danger: var(--danger);
+  --color-danger-subtle: var(--danger-subtle);
+  --color-scrim: var(--scrim);
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-2xl: 28px;
+  --radius-full: 9999px;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.375rem;
+  --text-5xl: 3rem;
+
+  --spacing-gutter: 24px;
+  --container-content: 1120px;
+  --container-search: 720px;
+}
