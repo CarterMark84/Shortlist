@@ -124,13 +124,13 @@ npm install
 
 ### 1. Supabase project
 
-This repository is already wired to project ref **`bhpvegtooptloffpepqb`**. From
+Create a project at [supabase.com](https://supabase.com). From
 **Project Settings → API Keys**, copy the publishable key — labelled either `anon` `public`
 (legacy JWT, starts `eyJhbGci...`) or **Publishable key** (`sb_publishable_...`). Either works.
 
 ```bash
 npx supabase login                                    # or: export SUPABASE_ACCESS_TOKEN=sbp_...
-npx supabase link --project-ref bhpvegtooptloffpepqb
+npx supabase link --project-ref <your-project-ref>
 npm run db:push                                       # applies supabase/migrations/
 ```
 
@@ -146,16 +146,15 @@ with *no* policies, which makes it reachable only by the service role.
 
 ### 2. Environment files
 
-`apps/web/.env.local` and `apps/mobile/.env` already exist with the project URL filled in. Only the
-key is outstanding — paste the same value into both:
+Copy `.env.example` and fill in the same two values in both places:
 
 ```bash
 # apps/web/.env.local
-NEXT_PUBLIC_SUPABASE_URL=https://bhpvegtooptloffpepqb.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
 
 # apps/mobile/.env
-EXPO_PUBLIC_SUPABASE_URL=https://bhpvegtooptloffpepqb.supabase.co
+EXPO_PUBLIC_SUPABASE_URL=https://<your-project-ref>.supabase.co
 EXPO_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
 ```
 
